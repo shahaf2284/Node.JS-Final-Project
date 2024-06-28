@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="Style.css"/>
+        <title>Edit</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body onload="loadPage()">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="./userInfo.html">Home</a></li>
+                <li><a href="./employee.html">Shifts</a></li>
+                <!-- <li><a href="#contact">Contact</a></li> -->
+                <!-- <li><a href="#Admin" hidden>Admin</a></li> -->
+                <li><a href="./LogOutPage.html">Log-out</a></li>
+            </ul>
+        </nav>
+        <h1 class="custom-heading-h1">Plastic Factory</h1>
+        <h3 class="custom-heading-h3-h4" id="title">Employee details</h3><br>
+
+        <div class="box" style="height: 130px;">
+            <h3 class="custom-heading-h3-h4" style="font-size: 12px;" id="name">name:</h3>
+            <h3 class="custom-heading-h3-h4" style="font-size: 12px;" id="username">user name:</h3>
+            <h3 class="custom-heading-h3-h4" style="font-size: 12px;" id="StartOnyear">Start on year:</h3>
+            <h3 class="custom-heading-h3-h4" style="font-size: 12px;" id="action">Employee action left:</h3>
+        </div>
+
+        <h3 class="custom-heading-h3-h4" style="font-size: 15px;" id="title">All the shift:</h3><br>
+        <table border="1" style="border-collapse: initial;" id="table">
+            <tr>
+                <th>
+                    <label class="label-table" for="date">Date</label>
+                </th>
+                <th>
+                    <label class="label-table" for="Start_time">Start</label>
+                </th>
+                <th>
+                    <label class="label-table" for="End_time">End</label>
+                </th>
+            </tr>
+
+        </table>
+    </body>
+    <script>
+        async function loadPage(){
+            const token = localStorage.getItem("token");
+            if(!token) {
+                alert("token not provided")
+                window.location.href = "./login.html"
+            }
+            //check if the mamager is logged in
+            const resp = await fetch("http://localhost:8000/employee",{headers: { token: token }})
+            const {data} = await resp.json()
+            console.log("data:\n",data)
+
+            if(!(data.departmentManager === data.employeeName)) {
+                window.location.href = "./userInfo.html"
+            }
+            
+            //get the employee id
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id')
+
+            //get employee information
+            let responsUser = await fetch(`http://localhost:8000/employee/user/${id}`)
+            let {data: infoEmployee} = await responsUser.json()
+            console.log(infoEmployee)
+
+            
+            const table = document.getElementById("table")
+            const name = document.getElementById("name")
+            const username = document.getElementById("username")
+            const StartOnyear = document.getElementById("StartOnyear")
+            const action = document.getElementById("action")
+
+
+            //Initialize the appropriate field in the existing information
+            name.innerText += " " + infoEmployee.employeeName
+            username.innerText += " " + infoEmployee.userName
+            StartOnyear.innerText += " " + infoEmployee.StartWorkYear
+            action.innerText += " " + infoEmployee.employeeActionsLeft
+
+            infoEmployee.shifts.forEach(element => {
+                //create the row
+                const newTr = document.createElement("tr")
+
+                //Create the Columns
+                const dateTd = document.createElement("td") 
+                const startTd = document.createElement("td")
+                const endTd = document.createElement("td")
+                // const Edit = document.createElement("td")
+                
+                dateTd.innerText = element.Date
+                startTd.innerText = element.Start_Time
+                endTd.innerText = element.End_Time
+                
+                //Append the columns to the row
+                newTr.appendChild(dateTd)
+                newTr.appendChild(startTd)
+                newTr.appendChild(endTd)
+                
+
+                //Append the row to the table
+                table.appendChild(newTr)
+
+            });
+        }
+        
+    </script>
+</html>
