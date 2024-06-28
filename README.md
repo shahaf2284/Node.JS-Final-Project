@@ -11,11 +11,11 @@ The goal is to give employees full access to their shift details and personal in
 * mongoose
 
 ## how to config:
-to config the project you need to Follow the steps:
+To config the project you need to Follow the steps:
 * first initialization:
   ```sh
    npm init --yes
 *  open mongoDB and create Data base on behalf of "FactoryDB", you also can dounlowd the DB from my dirctory DB in github
 *  run the project:
-  ```sh
+  ```sh node index.js
    node index.js
