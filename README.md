@@ -8,3 +8,4 @@ The goal is to give employees full access to their shift details and personal in
 ## Working with libraries:
  * express - "npm install express" 
  
+```sh 
