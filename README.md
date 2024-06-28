@@ -9,6 +9,10 @@ The goal is to give employees full access to their shift details and personal in
 * express 
 * cors
 * mongoose
+* axios
+
+## work with fake server:
+All employees are on the site "https://jsonplaceholder.typicode.com/users"
 
 ## how to config:
 To config the project you need to Follow the steps:
