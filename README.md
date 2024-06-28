@@ -14,3 +14,4 @@ The goal is to give employees full access to their shift details and personal in
 to config the project you need to Follow the steps:
 * first initialization:
   ```sh
+  npm init --yes
