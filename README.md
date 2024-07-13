@@ -28,5 +28,5 @@ To config the project you need to Follow the steps:
 ![image](https://github.com/user-attachments/assets/811e2b5c-d1c5-4978-a5b7-549dfafe2f52)
 
 ### My Server:
-![image](https://github.com/user-attachments/assets/b1bdd02d-3634-4be3-aa2f-0fa0cb99845a)
+![image](https://github.com/user-attachments/assets/487d77a1-971b-402f-98cb-63500bc35e17)
 
