@@ -22,7 +22,7 @@ To config the project you need to Follow the steps:
 *  open mongoDB and create Data base on behalf of "FactoryDB", you also can dounlowd the DB from my dirctory DB in github
 *  run the project:
   ```sh
-  node index.js ```
-
+  node index.js 
+```sh
 ## The detail of the architecture
 ![image](https://github.com/user-attachments/assets/811e2b5c-d1c5-4978-a5b7-549dfafe2f52)
