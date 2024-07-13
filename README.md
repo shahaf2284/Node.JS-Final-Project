@@ -23,6 +23,6 @@ To config the project you need to Follow the steps:
 *  run the project:
   ```sh
   node index.js 
-```sh
+sh```
 ## The detail of the architecture
 ![image](https://github.com/user-attachments/assets/811e2b5c-d1c5-4978-a5b7-549dfafe2f52)
