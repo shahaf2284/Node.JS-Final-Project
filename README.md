@@ -26,3 +26,5 @@ To config the project you need to Follow the steps:
  ```
 ## The detail of the architecture
 ![image](https://github.com/user-attachments/assets/811e2b5c-d1c5-4978-a5b7-549dfafe2f52)
+
+### My Server:
